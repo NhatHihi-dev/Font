@@ -1,4 +1,4 @@
-local TARGET_FONT=Font.new("rbxassetid://12187371840")
+local TARGET_FONT=Font.new("rbxassetid://12187364648")
 
 local Players=game:GetService("Players")
 local player=Players.LocalPlayer
