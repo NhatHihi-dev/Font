@@ -1,4 +1,4 @@
-local TARGET_FONT=Enum.Font.Cartoon
+local TARGET_FONT=Font.new("rbxassetid://12187371840")
 
 local Players=game:GetService("Players")
 local player=Players.LocalPlayer
@@ -11,14 +11,11 @@ local function IsLikelyIcon(obj)
 	local text=obj.Text or ""
 	if text=="" then return true end
 
-	-- Bỏ qua các text chỉ có 1-2 ký tự
-	-- vì thường là icon/glyph
 	local clean=text:gsub("%s+","")
 	if #clean<=2 then
 		return true
 	end
 
-	-- Bỏ qua các object thường dùng làm icon/logo
 	local name=obj.Name:lower()
 
 	local IconNames={
@@ -50,7 +47,7 @@ local function ChangeFont(object)
 	or object:IsA("TextButton")
 	or object:IsA("TextBox") then
 		pcall(function()
-			object.Font=TARGET_FONT
+			object.FontFace=TARGET_FONT
 		end)
 	end
 end
