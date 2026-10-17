@@ -1,4 +1,4 @@
-local TargetFont = Enum.Font.Cartoon
+local TARGET_FONT=Enum.Font.Cartoon
 
 local Players=game:GetService("Players")
 local player=Players.LocalPlayer
@@ -47,7 +47,7 @@ local function ChangeFont(object)
 	or object:IsA("TextButton")
 	or object:IsA("TextBox") then
 		pcall(function()
-			object.FontFace=TARGET_FONT
+			object.Font=TARGET_FONT
 		end)
 	end
 end
@@ -66,14 +66,12 @@ local function ApplyFontSystem(parentContainer)
 	end)
 end
 
--- GUI CỦA GAME + SCRIPT KHÁC
 local PlayerGui=player:WaitForChild("PlayerGui",10)
 
 if PlayerGui then
 	ApplyFontSystem(PlayerGui)
 end
 
--- GUI CỦA SCRIPT/EXECUTOR NẾU CÓ
 if gethui then
 	pcall(function()
 		local hui=gethui()
