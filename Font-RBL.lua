@@ -80,3 +80,30 @@ if gethui then
 		end
 	end)
 end
+
+
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local TargetFont = Enum.Font.Cartoon
+
+local function changeFontOfUI(object)
+
+    if object:IsA("TextLabel") or object:IsA("TextButton") or object:IsA("TextBox") then
+        object.Font = TargetFont
+    end
+
+    for _, child in ipairs(object:GetChildren()) do
+        changeFontOfUI(child)
+    end
+end
+
+changeFontOfUI(PlayerGui)
+
+PlayerGui.DescendantAdded:Connect(function(descendant)
+    if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
+        descendant.Font = TargetFont
+    end
+end)
